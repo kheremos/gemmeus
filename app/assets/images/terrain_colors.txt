@@ -1,0 +1,12 @@
+TERRAIN         R   G   B
+Grassland       38  239 53
+Sea             0   135 189
+Water           0   157 189
+Shallows        0   179 189
+Path            215 244 57
+Shrubs          31  193 43
+Forest          23  146 32
+Hills           117 143 0
+Mountains       139 143 123
+Swamp           186 92  104
+

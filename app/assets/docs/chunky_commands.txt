@@ -1,0 +1,53 @@
+require 'chunky_png'
+
+# Creating an image from scratch, save as an interlaced PNG
+png = ChunkyPNG::Image.new(16, 16, ChunkyPNG::Color::TRANSPARENT)
+png[1,1] = ChunkyPNG::Color.rgba(10, 20, 30, 128)
+png[2,1] = ChunkyPNG::Color('black @ 0.5')
+png.save('filename.png', :interlace => true)
+
+# png public methods
+[]                         []=                        area
+bezier_curve               change_mask_color!         change_theme_color!
+circle                     column                     compose
+compose!                   compose_pixel              compose_pixel_unsafe
+crop                       crop!                      dimension
+encoding_palette           encoding_palette=          extract_mask
+flip                       flip!                      flip_horizontally
+flip_horizontally!         flip_vertically            flip_vertically!
+get_pixel                  height                     include_point?
+include_x?                 include_xy?                include_y?
+line                       line_xiaolin_wu            metadata
+metadata=                  metadata_chunks            mirror
+mirror!                    palette                    pixels
+polygon                    rect                       replace
+replace!                   replace_column!            replace_row!
+resample                   resample_nearest_neighbor  resample_nearest_neighbor!
+resize                     rotate_180                 rotate_180!
+rotate_clockwise           rotate_clockwise!          rotate_counter_clockwise
+rotate_counter_clockwise!  rotate_left                rotate_left!
+rotate_right               rotate_right!              row
+save                       set_pixel                  set_pixel_if_within_bounds
+to_abgr_stream             to_blob                    to_datastream
+to_image                   to_rgb_stream              to_rgba_stream
+to_string                  width                      write
+
+# Accessing metadata
+image = ChunkyPNG::Image.from_file('avatar.png')
+puts image.metadata.inspect
+#=> {"Comment"=>"\n\n\n22/02/2008\n21:16:26\nMode=1\n1.0\n3.0\n"}
+puts image.dimension.inspect
+#<ChunkyPNG::Dimension:0x9f9ca40 @width=73, @height=73>
+
+image.metadata['Author'] = 'jrobertson'
+image.save('with_metadata.png') # Overwrite file
+
+# Compose images using alpha blending.
+avatar = ChunkyPNG::Image.from_file('avatar.png')
+badge  = ChunkyPNG::Image.from_file('ruby.png')
+avatar.compose!(badge, 43, 43)
+avatar.save('composited.png', :fast_rgba) # Force the fast saving routine.
+
+# Low level access to PNG chunks
+png_stream = ChunkyPNG::Datastream.from_file('ruby.png')
+png_stream.each_chunk { |chunk| p chunk.type }

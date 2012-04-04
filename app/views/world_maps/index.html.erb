@@ -1,0 +1,27 @@
+<h1>Listing world_maps</h1>
+
+<table>
+  <tr>
+    <th>Width</th>
+    <th>Height</th>
+    <th>Image</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @world_maps.each do |world_map| %>
+  <tr>
+    <td><%= world_map.width %></td>
+    <td><%= world_map.height %></td>
+    <td><%= world_map.image %></td>
+    <td><%= link_to 'Show', world_map %></td>
+    <td><%= link_to 'Edit', edit_world_map_path(world_map) %></td>
+    <td><%= link_to 'Destroy', world_map, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New World map', new_world_map_path %>
