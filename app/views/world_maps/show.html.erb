@@ -15,26 +15,26 @@
   <%= puts "@world_map.image" %>
 </p>
 
-<% local_map = @world_map.image_array(5, 50, 1) %>
+<% local_map = @world_map.image_array(10, 50, 50) %>
 
-<table border="0" cellpadding="0" cellspacing="0" >
+<table border="0" cellpadding="0" cellspacing="0" id="map">
   <tr>
     <th></th>
-    <% for x in 50-5..50+5 %>
+    <% for x in 50-10..50+10 %>
         <th><%= x %></th>
     <% end %>
   </tr>
-  <% for y in 1-5..1+5 %>
+  <% for y in 50-10..50+10 %>
       <tr>
-        <td><%= y %></td>
-
-        <% for x in (50-5)..50+5 %>
+        <td id="map" >
+          <%= "#{y}" %>
+        </td>
+        <% for x in (50-10)..50+10 %>
             <td>
               <% this_string = "#{x},#{y}" %>
               <% image = "#{WorldMap::IMAGE_MAP[local_map[this_string]]}" %>
-              <%= image_tag("#{image}", :size => "25x25") %>
-
-            </td>
+              <%= image_tag("#{image}", :size => "25x25", :id => "map", :border => 0) %><!--
+            --></td>
         <% end %>
       </tr>
 

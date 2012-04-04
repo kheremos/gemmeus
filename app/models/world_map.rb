@@ -32,7 +32,6 @@ class WorldMap < ActiveRecord::Base
         if y.between?(-1, @@greg_world_map.height) && x.between?(-1, @@greg_world_map.width)
           result["#{x},#{y}"] = @@greg_world_map.get_pixel(x,y)
         #else no need, default is 0
-
         end
       end
     end
