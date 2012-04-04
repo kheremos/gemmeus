@@ -1,6 +1,8 @@
 Gemmeus::Application.routes.draw do
   resources :world_maps
   match 'worldmap/:id' => 'world_maps#show'
+  match 'worldmap/explore/:x/:y' => 'world_maps#show'
+  match 'worldmap/explore/:x/:y/:radius' => 'world_maps#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

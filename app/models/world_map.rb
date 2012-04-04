@@ -30,8 +30,11 @@ class WorldMap < ActiveRecord::Base
     for x in xcoord-radius..xcoord+radius
       for y in ycoord-radius..xcoord+radius
         if y.between?(-1, @@greg_world_map.height) && x.between?(-1, @@greg_world_map.width)
+          #puts "y: #{y} vs. #{@@greg_world_map.height} and x: #{x} vs #{@@greg_world_map.width}"
           result["#{x},#{y}"] = @@greg_world_map.get_pixel(x,y)
-        #else no need, default is 0
+        #else #no need, default is 0
+        else
+          puts "!!! NOT FOUND !!! -> y: #{y} vs. #{@@greg_world_map.height} and x: #{x} vs #{@@greg_world_map.width}"
         end
       end
     end

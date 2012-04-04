@@ -14,6 +14,10 @@ class WorldMapsController < ApplicationController
   # GET /world_maps/1.json
   def show
     #@world_map = WorldMap.find(params[:id])
+    @x = params[:x].to_i if params.has_key?(:x)
+    @y = params[:y].to_i if params.has_key?(:y)
+    @radius = params[:radius].to_i if params.has_key?(:radius)
+    @x ||= 50; @y ||= @x; @radius ||= 7
     @world_map = WorldMap.new
     respond_to do |format|
       format.html # show.html.erb
