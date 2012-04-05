@@ -1,0 +1,16 @@
+
+Omniauth/Devise/etc:
+https://github.com/plataformatec/devise
+https://github.com/mkdynamic/omniauth-facebook
+https://github.com/plataformatec/devise/wiki/OmniAuth%3a-Overview
+http://railscasts.com/episodes/235-omniauth-part-1?view=asciicast
+
+Resolved?
+http://stackoverflow.com/questions/4567158/omniauth-facebook-authentication-on-localhost
+http://stackoverflow.com/questions/9966438/invalid-redirect-uri-with-omniauth-facebook-gem
+http://stackoverflow.com/questions/4286885/single-sign-on-authentication-using-facebook-on-rails-authlogic-or-devise
+http://stackoverflow.com/questions/8453683/invalid-redirect-uri-given-url-is-not-allowed-by-the-application-configuration
+
+Gemmeus FB:
+https://developers.facebook.com/apps/198208793627937/summary?save=1
+http://developers.facebook.com/docs/guides/web/#login

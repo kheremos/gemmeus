@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ruby on Rails: Welcome aboard</title>
+    <title>Sign in with Facebook</title>
     <style type="text/css" media="screen">
       body {
         margin: 0;
@@ -203,8 +203,8 @@
 
       <div id="content">
         <div id="header">
-          <h1>Welcome aboard</h1>
-          <h2>You&rsquo;re riding Ruby on Rails!</h2>
+          <h1>Welcome</h1>
+          <h2>You&rsquo;re about to enter the worlds of Gemmeus!</h2>
         </div>
 
         <div id="about">
@@ -218,8 +218,8 @@
 
           <ol>
             <li>
-              <h2>Use <code>rails generate</code> to create your models and controllers</h2>
-              <p>To see all available options, run it without parameters.</p>
+              <h2>sign in:</h2>
+              <p><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></p>
             </li>
 
             <li>

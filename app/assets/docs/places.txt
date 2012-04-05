@@ -1,0 +1,6 @@
+Town
+Cave
+Castle
+RiverToll
+Teleportal
+Temple

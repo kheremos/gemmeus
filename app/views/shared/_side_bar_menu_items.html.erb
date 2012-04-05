@@ -1,0 +1,11 @@
+<div class="sidebar" id="left-nav-top"><ul>
+    <% @sidebar_items[:top]["Back"] = url_for(:back) unless !@sidebar_items[:top]["Back"].nil? %>
+    <% menu_items[:top].each_key do |menu_item| %>
+        <li> <%= link_to(menu_item, menu_items[:top][menu_item]) %> </li>
+    <% end %>
+</ul></div>
+<div class="sidebar" id="left-nav-bottom"><ul>
+    <% menu_items[:bottom].each_key do |menu_item| %>
+        <li> <%= link_to(menu_item, menu_items[:bottom][menu_item]) %> </li>
+    <% end %>
+</ul></div>

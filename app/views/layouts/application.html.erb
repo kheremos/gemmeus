@@ -5,10 +5,35 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= yield(:header) %>
 </head>
 <body>
 
-<%= yield %>
+<div id="top-bar" class="top-bar span-20">
+  version: <%= link_to APP_VERSION, '/changelog' %>
+  <% if user_signed_in? %>
+      <spread-5>
+        User: <%= current_user.name.capitalize %>
+      </spread-5>
+      <spread-5> <%= link_to 'Log out', '/user/logout/' %></spread-5>
+      <spread-5> <%= link_to 'Stats', '/statistics' %></spread-5>
+      <spread-5> <%= link_to 'Events', '/public_messages' %></spread-5>
+  <% else %>
+      <spread-5> <%= link_to 'Log In', '/user/login/' %></spread-5>
+  <% end %>
+</div>
+
+<div id="sidebar-column" class="sidebar-column span-4">
+  <%= render :partial => "/shared/side_bar_menu_items", :locals => {:menu_items => @sidebar_items} %>
+</div>
+
+<div id="content-column" class="content-column span-12 last">
+  <div id="content" class="content">
+    <% display_flashes %>
+    <%= h(flash[:error]) unless flash[:error].nil? %>
+    <%= yield %>
+  </div>
+</div>
 
 </body>
 </html>

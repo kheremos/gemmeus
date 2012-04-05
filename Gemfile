@@ -6,6 +6,7 @@ gem 'rails', '3.2.2.rc1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'rake' , '>= 0.9.2'
 
 
 # Gems used only for assets and not required
@@ -21,7 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'oily_png'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -37,3 +38,11 @@ gem 'oily_png'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+# PNG gem for parsing the maps into data structures
+gem 'oily_png'
+
+## Authentication
+gem 'devise'
+# Facebook Auth.
+gem 'omniauth-facebook'

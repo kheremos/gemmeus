@@ -3,7 +3,10 @@ Meta:
 
 
 Stats:
+    hp/max_hp
+    sp/max_sp
     Strength
     Intelligence
     Wisdom
     Dexterity
+    Vision

@@ -5,3 +5,6 @@ Directories I'm working in:
 /home/kheremos/Projects/Webpage
 /home/kheremos/Projects/gemmeus/app/assets/images
 /home/kheremos/Documents/Projects
+
+Gradients:
+http://www.colorzilla.com/gradient-editor/

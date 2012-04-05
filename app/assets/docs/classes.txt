@@ -1,0 +1,2 @@
+Adding a new class:
+    Every value associated with a class must be added to a character

@@ -1,0 +1,142 @@
+/*
+    #  id
+    .  class
+*/
+
+spread-5 {    margin-left: 5%;}
+
+html {min-height: 100%;}
+
+html body {
+    /* gecko based browsers */
+    color: #000000; /* text color (black) */
+    height: auto; /* gradient uses the full height of the element */
+    padding: 5px; /* distance from border edge to text */
+    background: #959595; /* Old browsers */
+    background: -moz-linear-gradient(top,  #959595 0%, #0d0d0d 46%, #010101 50%, #0a0a0a 53%, #4e4e4e 76%, #383838 87%, #1b1b1b 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#959595), color-stop(46%,#0d0d0d), color-stop(50%,#010101), color-stop(53%,#0a0a0a), color-stop(76%,#4e4e4e), color-stop(87%,#383838), color-stop(100%,#1b1b1b)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* IE10+ */
+    background: linear-gradient(top,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#1b1b1b',GradientType=0 ); /* IE6-9 */
+}
+
+/*Percentage bars*/
+#stat_box{width:250px;border:1px solid #000;height:17px;}
+#stat_bar{background:#005;height:14px;color:#ddf;text-align:right;padding:3px 0px 0px 0px;}
+
+
+#sidebar-column {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1%;
+    margin-left: 0%;
+    margin-top: 12%;
+    overflow: hidden;
+    width: 10%;
+    background-color: #C5C5FF;
+}
+
+ul {     padding: 0; }
+
+/* #sidebar < ul < li { */
+#sidebar-column ul li a.button{
+    text-align: center;
+    /*   background-color: #F0000F; */
+    width: 80%;
+    height: 100%
+}
+
+#content-column {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0;
+    overflow: auto;
+    width: 60%;
+    height: 80%;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #C0C0FF;
+    border: .5% solid #DDDDDD;
+    margin-left: -2px;
+    background: #4b98e1; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(30,87,153,1) 0%, rgba(125,185,232,0.68) 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,0.68))); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(30,87,153,1) 0%,rgba(125,185,232,0.68) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  rgba(30,87,153,1) 0%,rgba(125,185,232,0.68) 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  rgba(30,87,153,1) 0%,rgba(125,185,232,0.68) 100%); /* IE10+ */
+    background: radial-gradient(center, ellipse cover,  rgba(30,87,153,1) 0%,rgba(125,185,232,0.68) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#ad7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+#content {
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 12px;
+    overflow: auto;
+    margin: 0;
+    padding: 1em;
+}
+
+html > body #sidebar-column {
+    min-height: 80%;
+    background-color: #C5C5FF;
+
+}
+
+#sidebar-column, #content-column {
+    margin-top: 13px;
+}
+
+#left-nav-top {
+    margin-top: 80%;
+}
+
+#left-nav-bottom {
+    margin-top: 10%;
+}
+
+.top-bar {
+    margin-left: 11%;
+}
+
+spread-5 {
+    margin-left: 5%;
+
+}
+
+html > body #content-column, html > body #sidebar-column {
+    min-height: 80%;
+}
+
+* html body #content-column, * html body #sidebar-column {
+    height: 80%;
+}
+
+.sidebar, #sidebar-column {
+    border-radius: 10px 5px 5px 10px;
+    background-color: #D0D0FF;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    font-size: 13px;
+    /*behavior: url(/stylesheets/border-radius.htc);*/
+}
+
+#sidebar-column {
+    border-radius: 90px 5px 5px 90px;
+}
+
+.sidebar ul {
+    margin-left: 0%;
+    list-style: none outside none;
+}
+
+.sidebar ul li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+}
+
+#sidebar-column {
+    border: .5% solid #DDDDDD;
+    margin-right: 10px;
+}

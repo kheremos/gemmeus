@@ -12,6 +12,9 @@
  *= require_tree .
 */
 
+require zeta
+require primary
+require button
 
 table#map {
     border-spacing:0px;

@@ -1,12 +1,15 @@
-class WorldMapsController < ApplicationController
+class UsersController < ApplicationController
+  before_filter :authenticate_user!, :except => "home"
+
   # GET /world_maps
   # GET /world_maps.json
-  def index
-    @world_maps = WorldMap.all
-
+  def home
+    #puts user_signed_in?
+    puts "Current User: #{current_user.inspect}"
+    #puts "User Session: #{user_session.inspect}"
     respond_to do |format|
       format.html # index.erb.erb
-      format.json { render json: @world_maps }
+      #format.json { render json: @world_maps }
     end
   end
 
