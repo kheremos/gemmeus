@@ -1,0 +1,21 @@
+Inventory Items:
+    Water Walking Boots
+
+Map Items:
+    ship/skiff* owners upkeep destroy_at
+     owner(s)
+     upkeep
+
+
+
+
+
+
+Nautical:
+    Due to the map being covered in water, boats will be required to explore everything.
+      WW Boots: Cross between shallow and land (not from boat)
+      Skiff: Crosses Shallow or Water
+      Ship: Crosses Water or Sea
+    boats require maintenance (to prevent map clutter)
+      Bigger boats, more maintenance, can be paid by owner or "crew".
+      Crew automatically added if owner walks onto the boat with party in tow.

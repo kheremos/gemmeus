@@ -1,12 +1,12 @@
-TERRAIN         R   G   B
-Grassland       38  239 53
-Sea             0   135 189
-Water           0   157 189
-Shallows        0   179 189
-Path            215 244 57
-Shrubs          31  193 43
-Forest          23  146 32
-Hills           117 143 0
-Mountains       139 143 123
-Swamp           186 92  104
+TERRAIN         R   G   B   Net         Alternate
+Grassland       38  239 53  653211135
+Sea             0   135 189 8895999
+Water           0   157 189 10337791
+Shallows        0   179 189 11779583
+Path            215 244 57  3623107071
+Shrubs          31  193 43  532753407
+Forest          23  146 32  395452671
+Hills           117 143 0   1972306175  3533648383
+Mountains       139 143 123 2341436415
+Swamp           186 92  104 3126618367
 

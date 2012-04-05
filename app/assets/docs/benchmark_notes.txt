@@ -1,0 +1,13 @@
+Started GET "/worldmap/explore/250/250/200" for 127.0.0.1 at 2012-04-04 05:31:39 -0700
+Processing by WorldMapsController#show as HTML
+  Parameters: {"x"=>"250", "y"=>"250", "radius"=>"200"}
+  Rendered world_maps/show.html.erb within layouts/application (164115.3ms)
+Completed 200 OK in 164512ms (Views: 164511.2ms | ActiveRecord: 0.0ms)
+
+(All the computation is done when image_array is called from the view method)
+
+Started GET "/worldmap/explore/250/250/252" for 127.0.0.1 at 2012-04-04 05:38:37 -0700
+Processing by WorldMapsController#show as HTML
+  Parameters: {"x"=>"250", "y"=>"250", "radius"=>"252"}
+  Rendered world_maps/show.html.erb within layouts/application (238311.7ms)
+Completed 200 OK in 238676ms (Views: 238674.6ms | ActiveRecord: 0.0ms)

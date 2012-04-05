@@ -1,0 +1,9 @@
+Meta:
+    Name
+
+
+Stats:
+    Strength
+    Intelligence
+    Wisdom
+    Dexterity

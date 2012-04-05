@@ -9,6 +9,7 @@ class WorldMap < ActiveRecord::Base
       395452671 => "forest.png",
       653211135 => "grass.png",
       1972306175 => "hill.png",
+      3533648383 => "hill.png",
       2341436415 => "mountain.png",
       3623107071 => "path.png",
       8895999 => "sea.png",
@@ -28,16 +29,20 @@ class WorldMap < ActiveRecord::Base
     # Sets default to zero, which should result in a "Void" space (ex: Edge regions and unknown)
     result= Hash.new(0)
     for x in xcoord-radius..xcoord+radius
-      for y in ycoord-radius..xcoord+radius
+      for y in ycoord-radius..ycoord+radius
         if y.between?(-1, @@greg_world_map.height) && x.between?(-1, @@greg_world_map.width)
           #puts "y: #{y} vs. #{@@greg_world_map.height} and x: #{x} vs #{@@greg_world_map.width}"
-          result["#{x},#{y}"] = @@greg_world_map.get_pixel(x,y)
+          pixel = @@greg_world_map.get_pixel(x,y)
+
+          result["#{x},#{y}"] = pixel if IMAGE_MAP[pixel]
+          puts "Pixel value: #{pixel} not found!" if !IMAGE_MAP[pixel]
         #else #no need, default is 0
         else
           puts "!!! NOT FOUND !!! -> y: #{y} vs. #{@@greg_world_map.height} and x: #{x} vs #{@@greg_world_map.width}"
         end
       end
     end
+    #puts result
     result
   end
 

@@ -1,0 +1,19 @@
+Enemy Stats/defaults:
+ Strength       5
+ Dexterity      5
+ Intelligence   5
+ Wisdom         5
+ Attacks        1
+
+Enemy list:
+ Baby Bug
+ Red Bug
+ Big Bug
+ Lady Bug
+ Sir Bug
+
+
+
+
+
+* Default icon's will just be little text boxes, so the game can progress without getting stuck on art.

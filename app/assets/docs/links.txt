@@ -1,2 +1,7 @@
 Latin links:
 http://www.archives.nd.edu/cgi-bin/lookup.pl?stem=g&ending=
+
+Directories I'm working in:
+/home/kheremos/Projects/Webpage
+/home/kheremos/Projects/gemmeus/app/assets/images
+/home/kheremos/Documents/Projects
