@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     @main_menu_items = ActiveSupport::OrderedHash.new
     @sidebar_items[:top]["Home"] = "/home"
     @sidebar_items[:top]["Characters"] = "/series"
-    @sidebar_items[:top]["Map"] = "/worldmap/explore/250/200/100"
+    @sidebar_items[:top]["Map"] = "/worldmap/explore/50/50/10"
     # Links for when a user is logged in
     if @user
       @sidebar_items[:top]["Favorites"] = "/series/user/#{@user.id}" if @user.name == ":dumb)"

@@ -1,3 +1,20 @@
+AJAX:
+  http://blog.project-sierra.de/archives/1398
+  http://www.tutorialspoint.com/ruby-on-rails-2.1/rails-and-ajax.htm
+  http://railscasts.com/episodes/229-polling-for-changes
+
+Latin links:
+  http://www.archives.nd.edu/cgi-bin/lookup.pl?stem=g&ending=
+
+Directories I'm working in:
+  /home/kheremos/Projects/Webpage
+  /home/kheremos/Projects/gemmeus/app/assets/images
+  /home/kheremos/Documents/Projects
+
+Gradients:
+  http://www.colorzilla.com/gradient-editor/
+
+
 
 Omniauth/Devise/etc:
 https://github.com/plataformatec/devise

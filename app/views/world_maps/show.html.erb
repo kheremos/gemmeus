@@ -1,33 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Width:</b>
-  <%= @world_map.width %>
-</p>
-
-<p>
-  <b>Height:</b>
-  <%= @world_map.height %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%= puts "@world_map.image" %>
-</p>
 
 <% local_map = @world_map.image_array(@radius, @x, @y) %>
 
-<table border="0" cellpadding="0" cellspacing="0" id="map">
+<table border="0"  id="map">
   <tr>
     <th></th>
     <% for x in @x-@radius..@x+@radius %>
         <th><%= x %></th>
     <% end %>
+    <th></th>
   </tr>
   <% for y in @y-@radius..@y+@radius %>
       <tr>
-        <td id="map" >
-          <%= "#{y}" %>
+        <td id="map" ><b>
+          <%= "#{y}" %></b>
         </td>
         <% for x in (@x-@radius)..@x+@radius %>
             <td>
@@ -37,7 +22,17 @@
               <%= image_tag("#{image}", :size => "25x25", :id => "map", :border => 0) %>
             </td>
         <% end %>
+        <td id="map" ><b>
+          <%= "#{y}" %></b>
+        </td>
       </tr>
-
   <% end %>
+  <tr>
+    <th></th>
+    <% for x in @x-@radius..@x+@radius %>
+        <th><%= x %></th>
+    <% end %>
+    <th></th>
+  </tr>
 </table>
+<p id="notice"><%= notice %></p>

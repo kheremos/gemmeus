@@ -3,7 +3,7 @@
 <head>
   <title>Gemmeus</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", :defaults %>
   <%= csrf_meta_tags %>
   <%= yield(:header) %>
 </head>
@@ -15,11 +15,11 @@
       <spread-5>
         User: <%= current_user.name.capitalize %>
       </spread-5>
-      <spread-5> <%= link_to 'Log out', '/user/logout/' %></spread-5>
-      <spread-5> <%= link_to 'Stats', '/statistics' %></spread-5>
-      <spread-5> <%= link_to 'Events', '/public_messages' %></spread-5>
+      <spread-5> <!--%= link_to 'Log out', '/user/logout/' %--></spread-5>
+      <spread-5> <!--%= link_to 'Stats', '/statistics' %--></spread-5>
+      <spread-5> <!--%= link_to 'Events', '/public_messages' %--></spread-5>
   <% else %>
-      <spread-5> <%= link_to 'Log In', '/user/login/' %></spread-5>
+      <spread-5> <%= link_to 'Log In', '/users/auth/facebook' %></spread-5>
   <% end %>
 </div>
 

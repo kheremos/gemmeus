@@ -16,14 +16,27 @@ require zeta
 require primary
 require button
 
-table#map {
-    border-spacing:0px;
+div#content.content table#map {
+    /*border-spacing:0px;*/
     /*border-spacing: 0;*/
     border-bottom: 0;
     border-collapse: collapse;
     cell-padding: 0;
-    cell-spacing: 0;
+    /*cell-spacing: 0;*/
+    margin-left:auto;
+    margin-right:auto;
 }
+
+table#map {
+    /*border-spacing:0px;*/
+    /*border-spacing: 0;*/
+    border-bottom: 0;
+    border-collapse: collapse;
+    /*cell-spacing: 0;*/
+    margin-left:auto;
+    margin-right:auto;
+}
+
 
 #map td, #map tr {
     bottom: 0;
