@@ -1,0 +1,4 @@
+jQuery('#ajax_return_div').append("<br /><%= @message %>");
+<% if !@message.nil? && @message.include?('added') %>
+setTimeout('location.reload(true);',5000);
+<% end %>

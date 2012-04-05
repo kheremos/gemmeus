@@ -1,7 +1,6 @@
-
 <% local_map = @world_map.image_array(@radius, @x, @y) %>
 
-<table border="0"  id="map">
+<table border="0" id="map">
   <tr>
     <th></th>
     <% for x in @x-@radius..@x+@radius %>
@@ -11,7 +10,7 @@
   </tr>
   <% for y in @y-@radius..@y+@radius %>
       <tr>
-        <td id="map" ><b>
+        <td id="map"><b>
           <%= "#{y}" %></b>
         </td>
         <% for x in (@x-@radius)..@x+@radius %>
@@ -22,7 +21,7 @@
               <%= image_tag("#{image}", :size => "25x25", :id => "map", :border => 0) %>
             </td>
         <% end %>
-        <td id="map" ><b>
+        <td id="map"><b>
           <%= "#{y}" %></b>
         </td>
       </tr>
@@ -33,6 +32,32 @@
         <th><%= x %></th>
     <% end %>
     <th></th>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td>↖</td>
+    <td>&#8593;</td>
+    <td>↗</td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to update_position_path, {:x => (@x+1), :y => (@y+1)}, :remote => true, :class => 'button' do %>
+          &larr;
+      <% end %>
+    </td>
+    <td>S</td>
+    <td>&rarr;</td>
+  </tr>
+  <tr>
+    <td>↙</td>
+    <td>
+      <%= link_to update_position_path, {:x => (@x+1)}, :remote => true, :class => 'button' do %>
+          &#8595;
+      <% end %>
+    </td>
+    <td>↘</td>
   </tr>
 </table>
 <p id="notice"><%= notice %></p>

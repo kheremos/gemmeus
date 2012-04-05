@@ -59,18 +59,22 @@ class WorldMapsController < ApplicationController
 
   # PUT /world_maps/1
   # PUT /world_maps/1.json
-  def update
-    @world_map = WorldMap.find(params[:id])
+  def move
 
-    respond_to do |format|
-      if @world_map.update_attributes(params[:world_map])
-        format.html { redirect_to @world_map, notice: 'World map was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @world_map.errors, status: :unprocessable_entity }
-      end
-    end
+    puts "Attempting update"
+
+    render 'relocate'
+    #@world_map = WorldMap.find(params[:id])
+    #
+    #respond_to do |format|
+    #  if @world_map.update_attributes(params[:world_map])
+    #    format.html { redirect_to @world_map, notice: 'World map was successfully updated.' }
+    #    format.json { head :no_content }
+    #  else
+    #    format.html { render action: "edit" }
+    #    format.json { render json: @world_map.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # DELETE /world_maps/1
