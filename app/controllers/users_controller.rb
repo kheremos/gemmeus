@@ -7,6 +7,13 @@ class UsersController < ApplicationController
     #puts user_signed_in?
     puts "Current User: #{current_user.inspect}"
     #puts "User Session: #{user_session.inspect}"
+
+    if current_user.characters.empty?
+      char = current_user.characters.new
+      puts "Character saved? #{char.save}"
+
+    end
+
     respond_to do |format|
       format.html # index.erb.erb
       #format.json { render json: @world_maps }

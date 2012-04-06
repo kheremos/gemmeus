@@ -20,6 +20,9 @@
               <% this_string = "#{x},#{y}" %>
               <% image = "#{WorldMap::IMAGE_MAP[local_map[this_string]]}" %>
               <% puts "Seaching for: #{this_string}" unless WorldMap::IMAGE_MAP[local_map[this_string]] %>
+              <% if (x == @x) && (y == @y) %>
+                  <img class="overlay-image" src="/assets/caleb.png" height="25" width="25" />
+              <% end %>
               <%= image_tag("#{image}", :size => "25x25", :id => "map", :class => "m#{mx+=1}m#{my}", :border => 0) %>
             </td>
         <% end %>
@@ -41,36 +44,36 @@
 <table>
   <tr>
     <td>
-      <%= link_to "↖", update_position_path(@x-1, @y-1, @radius), :remote => true, :class => 'button'  %>
+      <%= link_to "↖", update_position_path(-1, -1), :remote => true, :class => 'button' %>
     </td>
     <td>
-      <%= link_to "↑", update_position_path(@x, @y-1, @radius), :remote => true, :class => 'button'  %>
+      <%= link_to "↑", update_position_path(0, -1), :remote => true, :class => 'button' %>
     </td>
     <td>
-      <%= link_to "↗", update_position_path(@x+1, @y-1, @radius), :remote => true, :class => 'button'  %>
+      <%= link_to "↗", update_position_path(1, -1), :remote => true, :class => 'button' %>
     </td>
   </tr>
   <tr>
     <td>
-      <%= link_to "←", update_position_path(@x+1, @y, @radius), :remote => true, :class => 'button' %>
+      <%= link_to "←", update_position_path(-1, 0), :remote => true, :class => 'button' %>
     </td>
     <td>
-      <%= link_to "C", update_position_path(@x, @y, @radius), :remote => true, :class => 'button' %>
+      <%= link_to "C", update_position_path(0, 0), :remote => true, :class => 'button' %>
     </td>
     <td>
-      <%= link_to "→",update_position_path(@x+1, @y, @radius), :remote => true, :class => 'button' %>
-     </td>
+      <%= link_to "→", update_position_path(1, 0), :remote => true, :class => 'button' %>
+    </td>
   </tr>
   <tr>
     <td>
-      <%= link_to "↙", update_position_path(@x-1, @y+1, @radius), :remote => true, :class => 'button' %>
+      <%= link_to "↙", update_position_path(-1, 1), :remote => true, :class => 'button' %>
     </td>
     <td>
-      <%= link_to "↓", update_position_path(@x, @y+1, @radius), :remote => true, :class => 'button' %>
+      <%= link_to "↓", update_position_path(0, 1), :remote => true, :class => 'button' %>
     </td>
     <td>
-      <%= link_to "↘", update_position_path(@x+1, @y+1, @radius), :remote => true, :class => 'button' %>
-      </td>
+      <%= link_to "↘", update_position_path(1, 1), :remote => true, :class => 'button' %>
+    </td>
   </tr>
 </table>
 <p id="notice"><%= notice %></p>

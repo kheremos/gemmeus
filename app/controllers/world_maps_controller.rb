@@ -1,8 +1,9 @@
 class WorldMapsController < ApplicationController
+  before_filter :load_context
   # GET /world_maps
   # GET /world_maps.json
   def index
-    @world_maps = WorldMap.all
+    #@world_maps = WorldMap.all
 
     respond_to do |format|
       format.html # index.erb.erb
@@ -62,18 +63,29 @@ class WorldMapsController < ApplicationController
   # PUT /world_maps/1
   # PUT /world_maps/1.json
   def move
+    # TODO: Check validity of params, they can be spoofed
+    #       (And log cheaters.)
 
     # TODO: All the following and more
     # Validate acceptable movement here
-    # Companions/etc
-    # Delays
+    #if acceptable_move == true
+    if true == true
+      @x = (@character.xloc = @character.xloc + params[:x].to_i)
+      @y = (@character.yloc = @character.yloc + params[:y].to_i)
+      @rad = @character.view
+      @character.view = 7
+      @character.save
+    end
 
-    puts "Attempting update"
+    # FUTURE: Move companions
+    # Companions/etc
+
+    # TODO: Delays based on terrain
+
+
+
 
     @world_map = WorldMap.new
-    @x = params[:x].to_i
-    @y = params[:y].to_i
-    @rad = params[:radius].to_i
     #render 'relocate'
     #render :template => 'relocate.js.erb'
     respond_to do |format|

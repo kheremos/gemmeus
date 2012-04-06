@@ -5,7 +5,7 @@ Gemmeus::Application.routes.draw do
 
   resources :world_maps
 
-  match '/worldmap/update_position/:x/:y/:radius', :to => 'world_maps#move', :as => 'update_position'
+  match '/worldmap/update_position/:x/:y', :to => 'world_maps#move', :as => 'update_position'
 
 
   match 'worldmap/:id' => 'world_maps#show'

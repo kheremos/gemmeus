@@ -1,5 +1,8 @@
 Meta:
     Name
+    Class
+    Experience
+    Level
 
 
 Stats:
@@ -9,4 +12,5 @@ Stats:
     Intelligence
     Wisdom
     Dexterity
+    Constitution
     Vision

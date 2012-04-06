@@ -68,9 +68,9 @@ class WorldMap < ActiveRecord::Base
     else # IMAGE_MAP[@@greg_world_map.get_pixel(x,y)]
       @@REVEALED_MAP["x#{xcoord}y#{ycoord}"] = @@IMAGE_TO_TILE["void.png"]
     end
-    puts @@TILE_TO_IMAGE.inspect
-    puts @@REVEALED_MAP.inspect
-    puts @@TILE_TO_IMAGE[@@REVEALED_MAP[coord_string]]
+    #puts @@TILE_TO_IMAGE.inspect
+    #puts @@REVEALED_MAP.inspect
+    #puts @@TILE_TO_IMAGE[@@REVEALED_MAP[coord_string]]
     return @@TILE_TO_IMAGE[@@REVEALED_MAP[coord_string]]
   end
 
