@@ -21,9 +21,10 @@
               <% image = "#{WorldMap::IMAGE_MAP[local_map[this_string]]}" %>
               <% puts "Seaching for: #{this_string}" unless WorldMap::IMAGE_MAP[local_map[this_string]] %>
               <% if (x == @x) && (y == @y) %>
-                  <img class="overlay-image" src="/assets/caleb.png" height="25" width="25" />
+                  <img class="overlay-image" src="/assets/caleb.png" height="25" width="25"/>
+              <% else %>
+                  <%= image_tag("#{image}", :size => "25x25", :id => "map", :class => "m#{mx+=1}m#{my}", :border => 0) %>
               <% end %>
-              <%= image_tag("#{image}", :size => "25x25", :id => "map", :class => "m#{mx+=1}m#{my}", :border => 0) %>
             </td>
         <% end %>
         <% mx=0 %>

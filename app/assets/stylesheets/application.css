@@ -27,7 +27,7 @@ div#content.content table#map {
     margin-right:auto;
 }
 
-img.overlay-image{position:absolute;left:0px;top:0px;z-index:10;}
+img.overlay-image{position:relative;left:0px;top:0px;z-index:10;}
 img#map {z-index:1;}
 table#map {
     /*border-spacing:0px;*/
