@@ -63,8 +63,17 @@ class WorldMapsController < ApplicationController
   # PUT /world_maps/1.json
   def move
 
+    # TODO: All the following and more
+    # Validate acceptable movement here
+    # Companions/etc
+    # Delays
+
     puts "Attempting update"
 
+    @world_map = WorldMap.new
+    @x = params[:x].to_i
+    @y = params[:y].to_i
+    @rad = params[:radius].to_i
     #render 'relocate'
     #render :template => 'relocate.js.erb'
     respond_to do |format|

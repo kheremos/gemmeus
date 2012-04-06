@@ -2,6 +2,7 @@ AJAX:
   http://blog.project-sierra.de/archives/1398
   http://www.tutorialspoint.com/ruby-on-rails-2.1/rails-and-ajax.htm
   http://railscasts.com/episodes/229-polling-for-changes
+  http://www.billsternberger.net/asp-net-mvc/advanced-auto-complete-with-jquery-mvc-and-thumbnail-pictures/
 
 Latin links:
   http://www.archives.nd.edu/cgi-bin/lookup.pl?stem=g&ending=

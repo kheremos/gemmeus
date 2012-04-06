@@ -1,0 +1,9 @@
+<%= puts "GRRReh  #{Time.now}!" %>
+
+<%= puts params.inspect;view_y = 0 %>
+<% for iter_y in @y-@rad..@y+@rad %>
+    <% view_y+=1;view_x=0 %>
+    <% for iter_x in @x-@rad..@x+@rad %>
+        <%= update_image(view_x+=1, view_y, iter_x, iter_y, @world_map) %>
+    <% end %>
+<% end %>

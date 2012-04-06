@@ -1,6 +1,7 @@
 class WorldMap < ActiveRecord::Base
 
   require 'oily_png'
+
   MAP_DIRECTORY = "app/assets/images/"
   #MAPLOCATION = "world_map.png"
   #<%= image_tag('viewed.png', :title => 'You have watched this episode ('+season.season_number.to_s+'-'+episode.number.to_s+')') if @episode_union.index(episode.id) %>
@@ -19,6 +20,17 @@ class WorldMap < ActiveRecord::Base
       10337791 => "water.png",
       0 => "void.png"
   }
+
+  # So, my impending implementation is NOT threadsafe.  Fix it using this:
+  # http://m.onkey.org/thread-safety-for-your-rails
+  # I didn't want to be bothered at the moment, and wanted to be able to
+  # wander my wonderland.
+  # Stores # -> "image.png"
+  @@TILE_TO_IMAGE = {}
+  # Stores "image.png" -> #
+  @@IMAGE_TO_TILE = {}
+  # Stores low-tile-values in large x##y## hash
+  @@REVEALED_MAP = {}
 
   # The following is a class variable, it should only be read from, as it is NOT thread safe
   # but will prevent the need of reloading it or loading multiple instances of it.
@@ -44,6 +56,33 @@ class WorldMap < ActiveRecord::Base
     end
     #puts result
     result
+  end
+
+  def get_image(xcoord, ycoord)
+    initialize_simple_reference if @@TILE_TO_IMAGE.empty?
+    coord_string = "x#{xcoord}y#{ycoord}"
+    return @@TILE_TO_IMAGE[@@REVEALED_MAP[coord_string]] if @@REVEALED_MAP[coord_string]
+    if ycoord.between?(-1, @@greg_world_map.height) && xcoord.between?(-1, @@greg_world_map.width)
+      this_image = IMAGE_MAP[@@greg_world_map.get_pixel(xcoord,ycoord)]
+      @@REVEALED_MAP[coord_string] = @@IMAGE_TO_TILE[this_image]
+    else # IMAGE_MAP[@@greg_world_map.get_pixel(x,y)]
+      @@REVEALED_MAP["x#{xcoord}y#{ycoord}"] = @@IMAGE_TO_TILE["void.png"]
+    end
+    puts @@TILE_TO_IMAGE.inspect
+    puts @@REVEALED_MAP.inspect
+    puts @@TILE_TO_IMAGE[@@REVEALED_MAP[coord_string]]
+    return @@TILE_TO_IMAGE[@@REVEALED_MAP[coord_string]]
+  end
+
+  # This should be done as part of the initialization of the server
+  def initialize_simple_reference
+    starting_point = 0
+    IMAGE_MAP.each_pair do |k,v|
+      # Assign small digits to the various tiles
+      @@TILE_TO_IMAGE[starting_point+=1] = v
+      # Reverse lookup to store references as map is revealed
+      @@IMAGE_TO_TILE[v] = starting_point unless @@IMAGE_TO_TILE[v]
+    end
   end
 
 end
