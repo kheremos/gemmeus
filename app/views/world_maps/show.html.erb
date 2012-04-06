@@ -1,4 +1,5 @@
 <% local_map = @world_map.image_array(@radius, @x, @y) %>
+<% mx=my=0 %>
 
 <table border="0" id="map">
   <tr>
@@ -11,16 +12,17 @@
   <% for y in @y-@radius..@y+@radius %>
       <tr>
         <td id="map"><b>
-          <%= "#{y}" %></b>
+          <%= "#{y}";my+=1 %></b>
         </td>
         <% for x in (@x-@radius)..@x+@radius %>
             <td>
               <% this_string = "#{x},#{y}" %>
               <% image = "#{WorldMap::IMAGE_MAP[local_map[this_string]]}" %>
               <% puts "Seaching for: #{this_string}" unless WorldMap::IMAGE_MAP[local_map[this_string]] %>
-              <%= image_tag("#{image}", :size => "25x25", :id => "map", :border => 0) %>
+              <%= image_tag("#{image}", :size => "25x25", :id => "map", :class=>"m#{mx+=1}m#{my}", :border => 0) %>
             </td>
         <% end %>
+        <% mx=0 %>
         <td id="map"><b>
           <%= "#{y}" %></b>
         </td>
@@ -34,7 +36,7 @@
     <th></th>
   </tr>
 </table>
-
+<div id='ajax_return_div'>...</div>
 <table>
   <tr>
     <td>↖</td>
@@ -53,9 +55,8 @@
   <tr>
     <td>↙</td>
     <td>
-      <%= link_to update_position_path, {:x => (@x+1)}, :remote => true, :class => 'button' do %>
-          &#8595;
-      <% end %>
+      <%= link_to "↓", update_position_path(@x+1,@y+1,4), :remote => true, :class => 'button' %>
+      <%= link_to "↓", { :controller => "world_maps", :action => "move" }, :remote => true %>.
     </td>
     <td>↘</td>
   </tr>

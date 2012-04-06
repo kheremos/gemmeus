@@ -3,8 +3,7 @@
 <head>
   <title>Gemmeus</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <!--<%= javascript_include_tag "application", :defaults %>-->
-  <%= javascript_include_tag "prototype" %>
+  <%= javascript_include_tag "rails", "jquery", "jquery-ujs", "application" %>
   <%= csrf_meta_tags %>
   <%= yield(:header) %>
 </head>

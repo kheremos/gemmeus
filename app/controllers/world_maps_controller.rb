@@ -20,6 +20,7 @@ class WorldMapsController < ApplicationController
     @x ||= 50; @y ||= @x; @radius ||= 7
     @world_map = WorldMap.new
     respond_to do |format|
+      format.js
       format.html # show.html.erb
       format.json { render json: @world_map }
     end
@@ -48,6 +49,7 @@ class WorldMapsController < ApplicationController
 
     respond_to do |format|
       if @world_map.save
+
         format.html { redirect_to @world_map, notice: 'World map was successfully created.' }
         format.json { render json: @world_map, status: :created, location: @world_map }
       else
@@ -63,7 +65,13 @@ class WorldMapsController < ApplicationController
 
     puts "Attempting update"
 
-    render 'relocate'
+    #render 'relocate'
+    #render :template => 'relocate.js.erb'
+    respond_to do |format|
+      format.js { render :layout => false }
+    end
+
+
     #@world_map = WorldMap.find(params[:id])
     #
     #respond_to do |format|
