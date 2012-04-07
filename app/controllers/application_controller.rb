@@ -23,6 +23,12 @@ class ApplicationController < ActionController::Base
   end
 
   def load_context
+
+    if current_user && current_user.characters.empty?
+      char = current_user.characters.new
+      puts "New character saved? #{char.save}"
+    end
+
     if current_user.current_character.nil?
       current_user.current_character = current_user.characters.first.id
       current_user.save
