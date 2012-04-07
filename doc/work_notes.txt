@@ -2,6 +2,9 @@ LINK DUMP (Transfer to links.txt as not-needed)
 
 
 **** TODO:
+
+2) Facebook create user from session...
+
 3) Remove asset messages.
 
 5) Fix db:migrate

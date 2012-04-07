@@ -38,12 +38,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+  config.case_insensitive_keys = [:email]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email ]
+  config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -212,8 +212,16 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   require "omniauth-facebook"
-  config.omniauth :facebook, "198208793627937", "c0b923bc2efbea3cd0cc1956504980b6",
-                  :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+
+  if Rails.env.development?
+    config.omniauth :facebook, "176886072432390", "d3497a72fa97806239efe9d6a73e3c2b",
+                    :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+  end
+
+  if Rails.env.production?
+    config.omniauth :facebook, "198208793627937", "c0b923bc2efbea3cd0cc1956504980b6",
+                    :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+  end
 
 
   # ==> Warden configuration

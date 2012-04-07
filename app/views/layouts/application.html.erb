@@ -16,7 +16,7 @@
       <spread-5>
         User: <%= current_user.name.capitalize %>
       </spread-5>
-      <spread-5> <!--%= link_to 'Log out', '/user/logout/' %--></spread-5>
+      <spread-5> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </spread-5>
       <spread-5> <!--%= link_to 'Stats', '/statistics' %--></spread-5>
       <spread-5> <!--%= link_to 'Events', '/public_messages' %--></spread-5>
   <% else %>
