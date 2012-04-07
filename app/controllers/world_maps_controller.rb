@@ -15,9 +15,15 @@ class WorldMapsController < ApplicationController
   # GET /world_maps/1.json
   def show
     #@world_map = WorldMap.find(params[:id])
-    @x = params[:x].to_i if params.has_key?(:x)
-    @y = params[:y].to_i if params.has_key?(:y)
+    if params.has_key?(:x) && params.has_key?(:y)
+      @x = params[:x].to_i if params.has_key?(:x)
+      @y = params[:y].to_i if params.has_key?(:y)
+    end
     @radius = params[:radius].to_i if params.has_key?(:radius)
+    if @character
+      @x = @character.xloc
+      @y = @character.yloc
+    end
     @x ||= 50; @y ||= @x; @radius ||= 7
     @world_map = WorldMap.new
     respond_to do |format|
@@ -81,8 +87,6 @@ class WorldMapsController < ApplicationController
     # Companions/etc
 
     # TODO: Delays based on terrain
-
-
 
 
     @world_map = WorldMap.new

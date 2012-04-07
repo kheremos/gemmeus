@@ -22,6 +22,7 @@
               <% puts "Seaching for: #{this_string}" unless WorldMap::IMAGE_MAP[local_map[this_string]] %>
               <% if (x == @x) && (y == @y) %>
                   <img class="overlay-image" src="/assets/caleb.png" height="25" width="25"/>
+                  <% mx+=1 %>
               <% else %>
                   <%= image_tag("#{image}", :size => "25x25", :id => "map", :class => "m#{mx+=1}m#{my}", :border => 0) %>
               <% end %>
@@ -45,35 +46,35 @@
 <table>
   <tr>
     <td>
-      <%= link_to "↖", update_position_path(-1, -1), :remote => true, :class => 'button' %>
+      <%= link_to "↖", update_position_path(-1, -1), :remote => true, :class => 'button', :accesskey => "q" %>
     </td>
     <td>
-      <%= link_to "↑", update_position_path(0, -1), :remote => true, :class => 'button' %>
+      <%= link_to "↑", update_position_path(0, -1), :remote => true, :class => 'button', :accesskey => "w" %>
     </td>
     <td>
-      <%= link_to "↗", update_position_path(1, -1), :remote => true, :class => 'button' %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <%= link_to "←", update_position_path(-1, 0), :remote => true, :class => 'button' %>
-    </td>
-    <td>
-      <%= link_to "C", update_position_path(0, 0), :remote => true, :class => 'button' %>
-    </td>
-    <td>
-      <%= link_to "→", update_position_path(1, 0), :remote => true, :class => 'button' %>
+      <%= link_to "↗", update_position_path(1, -1), :remote => true, :class => 'button', :accesskey => "e" %>
     </td>
   </tr>
   <tr>
     <td>
-      <%= link_to "↙", update_position_path(-1, 1), :remote => true, :class => 'button' %>
+      <%= link_to "←", update_position_path(-1, 0), :remote => true, :class => 'button', :accesskey => "a" %>
     </td>
     <td>
-      <%= link_to "↓", update_position_path(0, 1), :remote => true, :class => 'button' %>
+      <%= link_to "C", update_position_path(0, 0), :remote => true, :class => 'button', :accesskey => "s" %>
     </td>
     <td>
-      <%= link_to "↘", update_position_path(1, 1), :remote => true, :class => 'button' %>
+      <%= link_to "→", update_position_path(1, 0), :remote => true, :class => 'button', :accesskey => "d" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to "↙", update_position_path(-1, 1), :remote => true, :class => 'button', :accesskey => "z" %>
+    </td>
+    <td>
+      <%= link_to "↓", update_position_path(0, 1), :remote => true, :class => 'button', :accesskey => "x" %>
+    </td>
+    <td>
+      <%= link_to "↘", update_position_path(1, 1), :remote => true, :class => 'button', :accesskey => "c" %>
     </td>
   </tr>
 </table>
@@ -83,5 +84,4 @@
 
 <!--jQuery("#ajax_return_div").css("border","3px solid red");-->
 <!--jQuery('#ajax_return_div').append("<br />sdasdasdasd test ");-->
-
 

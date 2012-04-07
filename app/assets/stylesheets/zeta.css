@@ -102,12 +102,17 @@ html > body #sidebar-column {
 }
 
 .top-bar {
-    margin-left: 11%;
+    margin-left: 1%;
 }
 
 spread-5 {
     margin-left: 5%;
+}
 
+#character-tracker {
+    float: left;
+    width:11%;
+    min-width:11%;
 }
 
 html > body #content-column, html > body #sidebar-column {

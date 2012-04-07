@@ -9,8 +9,8 @@
   <%= yield(:header) %>
 </head>
 <body>
-
-<div id="top-bar" class="top-bar span-20">
+<div id="top-bar" class="top-bar span-10">
+  <span id="character-tracker">??:x??y??</span>
   version: <%= link_to APP_VERSION, '/changelog' %>
   <% if user_signed_in? %>
       <spread-5>

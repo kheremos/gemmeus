@@ -10,10 +10,10 @@ class ApplicationController < ActionController::Base
     }
     @main_menu_items = ActiveSupport::OrderedHash.new
     character unless @character
-    @sidebar_items[:top][@character.name] = "/home"
+    @sidebar_items[:top][@character.name] = "/home" unless @character.nil?
     @sidebar_items[:top]["Home"] = "/home"
     @sidebar_items[:top]["Characters"] = "/series"
-    @sidebar_items[:top]["Map"] = "/worldmap/explore/#{@character.x}/#{@character.y}/#{@character.view}"
+    @sidebar_items[:top]["Map"] = "/worldmap/explore/"
     # Links for when a user is logged in
     if @user
       @sidebar_items[:top]["Favorites"] = "/series/user/#{@user.id}" if @user.name == ":dumb)"
@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def character
+    return nil if current_user.nil?
     current_user.current_character = current_user.characters.first unless @character
     @character = current_user.characters.find(current_user.current_character)
   end

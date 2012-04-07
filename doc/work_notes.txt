@@ -1,16 +1,19 @@
-LINK DUMP (Delete as not-needed)
+LINK DUMP (Transfer to links.txt as not-needed)
 
 
-TODO:
-Remove asset messages.
+**** TODO:
+3) Remove asset messages.
 
-Fix db:migrate
+5) Fix db:migrate
   rake aborted!
   You have already activated rake 0.9.3.beta.1, but your Gemfile requires rake 0.9.2.2. Using bundle exec may solve this.
   ** In the mean time:  bundle exec rake db:migrate
-Console:
+
+6) Console:
     /home/kheremos/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/irb/completion.rb:9:in `require':
     cannot load such file -- readline (LoadError)
+
+
 
 Progress Made:
     Ajax:   http://www.tutorialspoint.com/ruby-on-rails-2.1/rails-and-ajax.htm
