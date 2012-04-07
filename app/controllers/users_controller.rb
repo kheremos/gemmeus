@@ -8,9 +8,11 @@ class UsersController < ApplicationController
     puts "Current User: #{current_user.inspect}"
     #puts "User Session: #{user_session.inspect}"
 
-    if current_user && current_user.characters.empty?
-      char = current_user.characters.new
+    if @user && @user.characters.empty?
+      char = @user.characters.new
       puts "Character saved? #{char.save}"
+      @user.current_character = char.id
+      @user.save
     end
 
     respond_to do |format|

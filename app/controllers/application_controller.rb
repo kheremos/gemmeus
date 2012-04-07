@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
 
   def load_context
 
+    # Create a new character if one doesn't exist
     if current_user && current_user.characters.empty?
       char = current_user.characters.new
       puts "New character saved? #{char.save}"
@@ -33,12 +34,21 @@ class ApplicationController < ActionController::Base
       current_user.current_character = current_user.characters.first.id
       current_user.save
     end
+
     @character = current_user.characters.find(current_user.current_character) unless @character
   end
 
   def character
     return nil if current_user.nil?
-    current_user.current_character = current_user.characters.first unless @character
+
+    # Create a new character if one doesn't exist
+    if current_user && current_user.characters.empty?
+      char = current_user.characters.new
+      puts "New character saved? #{char.save}"
+      current_user.current_character = current_user.characters.first.id
+      current_user.save
+    end
+
     @character = current_user.characters.find(current_user.current_character)
   end
 
