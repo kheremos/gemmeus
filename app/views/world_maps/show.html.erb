@@ -79,6 +79,10 @@
   </tr>
 </table>
 <p id="notice"><%= notice %></p>
+<script>
+    jQuery('#character-tracker').text('m1:x<%=  "#{@character.x}" %>y<%=  "#{@character.y}" %>');
+
+</script>
 <!--The following works:                                                                        -->
 <!--jQuery(function() { alert("jQuery works");    });-->
 

@@ -62,7 +62,7 @@ class WorldMap < ActiveRecord::Base
     initialize_simple_reference if @@TILE_TO_IMAGE.empty?
     coord_string = "x#{xcoord}y#{ycoord}"
     return @@TILE_TO_IMAGE[@@REVEALED_MAP[coord_string]] if @@REVEALED_MAP[coord_string]
-    if ycoord.between?(-1, @@greg_world_map.height) && xcoord.between?(-1, @@greg_world_map.width)
+    if ycoord.between?(-1, @@greg_world_map.height-1) && xcoord.between?(-1, @@greg_world_map.width-1)
       this_image = IMAGE_MAP[@@greg_world_map.get_pixel(xcoord,ycoord)]
       @@REVEALED_MAP[coord_string] = @@IMAGE_TO_TILE[this_image]
     else # IMAGE_MAP[@@greg_world_map.get_pixel(x,y)]

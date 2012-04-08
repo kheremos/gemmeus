@@ -1,5 +1,6 @@
 class WorldMapsController < ApplicationController
   before_filter :load_context
+  before_filter :authenticate_user!
   # GET /world_maps
   # GET /world_maps.json
   def index
