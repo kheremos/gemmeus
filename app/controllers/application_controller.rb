@@ -9,10 +9,11 @@ class ApplicationController < ActionController::Base
         :bottom => ActiveSupport::OrderedHash.new
     }
     @main_menu_items = ActiveSupport::OrderedHash.new
-    @sidebar_items[:top][@character.name] = "/home" unless @character.nil?
-    @sidebar_items[:top]["Home"] = "/home"
-    @sidebar_items[:top]["Characters"] = "/series"
+    @sidebar_items[:top][@character.name] = "/" unless @character.nil?
+    @sidebar_items[:top]["Home"] = "/"
+    @sidebar_items[:top]["Characters"] = "/"
     @sidebar_items[:top]["Map"] = "/worldmap/explore/"
+    @sidebar_items[:top]["Caleb Map"] = "/worldmap/generate/"
     # Links for when a user is logged in
     if @user
       @sidebar_items[:top]["Favorites"] = "/series/user/#{@user.id}" if @user.name == ":dumb)"

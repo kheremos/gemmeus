@@ -34,11 +34,9 @@ class WorldMapsController < ApplicationController
     end
   end
 
-  # GET /world_maps/new
-  # GET /world_maps/new.json
-  def new
-    @world_map = WorldMap.new
-
+  def generate
+    WorldMap.new.generate_character_map
+    return redirect_to root_path
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @world_map }

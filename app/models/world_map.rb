@@ -21,6 +21,22 @@ class WorldMap < ActiveRecord::Base
       0 => "void.png"
   }
 
+  TILE_REFS = {
+      395452671 => ["forest.png", "f"],
+      653211135 => ["grass.png", "g"],
+      1972306175 => ["hill.png", "h"],
+      3533648383 => ["hill.png", "h"],
+      2341436415 => ["mountain.png", "m"],
+      3623107071 => ["path.png", "p"],
+      11779583 => ["shallow.png", "1"],
+      10337791 => ["water.png", "2"],
+      8895999 => ["sea.png", "3"],
+      532753407 => ["shrub.png", "r"],
+      3126618367 => ["swamp.png", "x"],
+      0 => ["void.png", "v"]
+  }
+  TILE_REFS.default = ["void.png", "v"]
+
   # So, my impending implementation is NOT threadsafe.  Fix it using this:
   # http://m.onkey.org/thread-safety-for-your-rails
   # I didn't want to be bothered at the moment, and wanted to be able to
@@ -44,11 +60,11 @@ class WorldMap < ActiveRecord::Base
       for y in ycoord-radius..ycoord+radius
         if y.between?(-1, @@greg_world_map.height) && x.between?(-1, @@greg_world_map.width)
           #puts "y: #{y} vs. #{@@greg_world_map.height} and x: #{x} vs #{@@greg_world_map.width}"
-          pixel = @@greg_world_map.get_pixel(x,y)
+          pixel = @@greg_world_map.get_pixel(x, y)
 
           result["#{x},#{y}"] = pixel if IMAGE_MAP[pixel]
           puts "Pixel value: #{pixel} not found!" if !IMAGE_MAP[pixel]
-        #else #no need, default is 0
+          #else #no need, default is 0
         else
           puts "!!! NOT FOUND !!! -> y: #{y} vs. #{@@greg_world_map.height} and x: #{x} vs #{@@greg_world_map.width}"
         end
@@ -63,7 +79,7 @@ class WorldMap < ActiveRecord::Base
     coord_string = "x#{xcoord}y#{ycoord}"
     return @@TILE_TO_IMAGE[@@REVEALED_MAP[coord_string]] if @@REVEALED_MAP[coord_string]
     if ycoord.between?(-1, @@greg_world_map.height-1) && xcoord.between?(-1, @@greg_world_map.width-1)
-      this_image = IMAGE_MAP[@@greg_world_map.get_pixel(xcoord,ycoord)]
+      this_image = IMAGE_MAP[@@greg_world_map.get_pixel(xcoord, ycoord)]
       @@REVEALED_MAP[coord_string] = @@IMAGE_TO_TILE[this_image]
     else # IMAGE_MAP[@@greg_world_map.get_pixel(x,y)]
       @@REVEALED_MAP["x#{xcoord}y#{ycoord}"] = @@IMAGE_TO_TILE["void.png"]
@@ -77,12 +93,25 @@ class WorldMap < ActiveRecord::Base
   # This should be done as part of the initialization of the server
   def initialize_simple_reference
     starting_point = 0
-    IMAGE_MAP.each_pair do |k,v|
+    IMAGE_MAP.each_pair do |k, v|
       # Assign small digits to the various tiles
       @@TILE_TO_IMAGE[starting_point+=1] = v
       # Reverse lookup to store references as map is revealed
       @@IMAGE_TO_TILE[v] = starting_point unless @@IMAGE_TO_TILE[v]
     end
+  end
+
+  def generate_character_map
+    result = Array.new
+    for y in 0..@@greg_world_map.height
+      row = ""
+      for x in 0..@@greg_world_map.width
+        row << TILE_REFS[@@greg_world_map.get_pixel(x,y)][1]
+      end
+      result << row
+    end
+    puts result.inspect
+    result
   end
 
 end
