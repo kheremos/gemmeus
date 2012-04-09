@@ -62,9 +62,10 @@ class WorldMap < ActiveRecord::Base
           #puts "y: #{y} vs. #{@@greg_world_map.height} and x: #{x} vs #{@@greg_world_map.width}"
           pixel = @@greg_world_map.get_pixel(x, y)
 
-          result["#{x},#{y}"] = pixel if IMAGE_MAP[pixel]
+          #result["#{x},#{y}"] = pixel if IMAGE_MAP[pixel]
+          result["#{x},#{y}"] = pixel if TILE_REFS[pixel][0]
+          # The following prob won't happen because of default value.
           puts "Pixel value: #{pixel} not found!" if !IMAGE_MAP[pixel]
-          #else #no need, default is 0
         else
           puts "!!! NOT FOUND !!! -> y: #{y} vs. #{@@greg_world_map.height} and x: #{x} vs #{@@greg_world_map.width}"
         end
@@ -93,11 +94,11 @@ class WorldMap < ActiveRecord::Base
   # This should be done as part of the initialization of the server
   def initialize_simple_reference
     starting_point = 0
-    IMAGE_MAP.each_pair do |k, v|
+    TILE_REFS.each_pair do |k, v|
       # Assign small digits to the various tiles
-      @@TILE_TO_IMAGE[starting_point+=1] = v
+      @@TILE_TO_IMAGE[starting_point+=1] = v[0]
       # Reverse lookup to store references as map is revealed
-      @@IMAGE_TO_TILE[v] = starting_point unless @@IMAGE_TO_TILE[v]
+      @@IMAGE_TO_TILE[v[0]] = starting_point unless @@IMAGE_TO_TILE[v[0]]
     end
   end
 
